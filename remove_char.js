@@ -14,7 +14,7 @@ function remove1() {
 
     var btn = document.getElementById("rm1");
     btn.onclick = function() { restore1(); };
-    btn.value = 'Undo';
+    btn.value = '取消';
 }
 
 function remove2() {
@@ -22,7 +22,7 @@ function remove2() {
 
     var btn = document.getElementById("rm2");
     btn.onclick = function() { restore2(); };
-    btn.value = 'Undo';
+    btn.value = '取消';
 }
 
 function restore(charID) {
@@ -41,7 +41,7 @@ function restore1() {
 
     var btn = document.getElementById("rm1");
     btn.onclick = function() { remove1(); };
-    btn.value = 'Dislike';
+    btn.value = '删除';
 }
 
 function restore2() {
@@ -49,5 +49,5 @@ function restore2() {
 
     var btn = document.getElementById("rm2");
     btn.onclick = function() { remove2(); };
-    btn.value = 'Dislike';
+    btn.value = '删除';
 }
