@@ -6,4 +6,8 @@
     define('DB_NAME', 'names');
     define('DB_CHARSET', 'utf8');
 
+    define('AUTH_DB_USER', 'auth_admin');
+    define('AUTH_DB_PASS', 'admin');
+    define('AUTH_DB_NAME', 'auth_names');
+
 ?>

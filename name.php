@@ -1,3 +1,12 @@
+<?php
+    $admin = false;
+    session_start();
+    if (!isset($_SESSION["admin"]) || $_SESSION["admin"] === false) {
+        $_SESSION["admin"] = false;
+        die("无口令，无权访问");
+    }
+?>
+
 <html>
 <head>
     <title>好名字</title>
@@ -5,6 +14,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="new_request.js"></script>
     <script src="remove_char.js"></script>
+    <script src="save_name.js"></script>
 
 </head>
 <body>
@@ -19,7 +29,16 @@
             </tr>
         </table>
     </form>
-    <p>随机姓名：<span id="retName"></span></p>
+    <form id="disp_name" name="disp_name">
+        <table>
+            <tr>
+                <td>随机姓名：</td>
+                <td><span id="retName"></span></td>
+                <td><input id="save" onclick="save_name()" 
+                    type="button" value="保存"/></td>
+            </tr>
+        </table>
+    </form>
     <form id="result_form" name="result_form">
         <table>
             <tr>
@@ -49,11 +68,17 @@
     </form>
 
     <script>
-        function submit_func() {            
+        function submit_func() {
             document.getElementById("rm1").onclick = function() {remove1();};
             document.getElementById("rm1").value = 'Dislike';
             document.getElementById("rm2").onclick = function() {remove2();};
             document.getElementById("rm2").value = 'Dislike';
+            document.getElementById("save").onclick = function() { save_name(); };
+            document.getElementById("save").value = '保存';
+            var c1 = "";
+            var c2 = "";
+            var fullName = "";
+            var raw = "";
             new_request();
         }
     </script>
