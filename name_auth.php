@@ -15,7 +15,7 @@
         die("空白口令");
     }
 
-    $sql = "SELECT * FROM auth WHERE Password='$code'";
+    $sql = "SELECT * FROM ".AUTH_TBL." WHERE Password='$code'";
     $succ = 0;
     if($stmt = $auth_db->prepare($sql)) {
         $stmt->execute();

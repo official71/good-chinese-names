@@ -1,11 +1,12 @@
 <?php
 function rand_query($db) {
     $ret = "";
-    $sql = "SELECT * FROM name_char WHERE Banned=0 ORDER BY RAND() LIMIT 1;";
+    $sql = "SELECT * FROM ".CHAR_TBL." WHERE Banned=0 ORDER BY RAND() LIMIT 1;";
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();
         $row = $stmt->fetch();
 
+        $fort = $row['Fortune'];
         $charid = $row['CharID'];
         $num = $row['Num'];
         $self = $row['Self'];
@@ -14,7 +15,7 @@ function rand_query($db) {
         //$encoding = mb_detect_encoding($str);
         //$str = mb_convert_encoding($str, "UTF-8", "auto");
 
-        $ret = $charid . ' ' . $num . ' ' . $self . ' ' . $attr . ' ' . $ref . '|';
+        $ret = $charid.' '.$num.' '.$self.' '.$attr.' '.$ref.' '.$fort.'|';
     }
     return $ret;
 }

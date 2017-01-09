@@ -1,6 +1,6 @@
 <?php
 function ban_char($db, $charid, $ban) {
-    $sql = "UPDATE name_char SET Banned=".$ban." WHERE CharID=".$charid;
+    $sql = "UPDATE ".CHAR_TBL." SET Banned=".$ban." WHERE CharID=".$charid;
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();
         //$row = $stmt->fetch();

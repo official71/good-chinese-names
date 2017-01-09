@@ -1,13 +1,13 @@
 <?php
 function save_name($db, $fullname, $rawtext) {
-    $sql = "INSERT INTO saved (Fullname, Rawtext) VALUES ('".$fullname."','".$rawtext."');";
+    $sql = "INSERT INTO ".SAVE_TBL." (Fullname, Rawtext) VALUES ('".$fullname."','".$rawtext."');";
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();
     }
 }
 
 function del_name($db, $fullname) {
-    $sql = "DELETE FROM saved WHERE Fullname='".$fullname."';";
+    $sql = "DELETE FROM ".SAVE_TBL." WHERE Fullname='".$fullname."';";
     echo $sql;
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();

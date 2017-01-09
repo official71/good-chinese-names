@@ -10,4 +10,7 @@
     define('AUTH_DB_PASS', 'admin');
     define('AUTH_DB_NAME', 'auth_names');
 
+    define('CHAR_TBL', 'chars');
+    define('SAVE_TBL', 'saved');
+    define('AUTH_TBL', 'auth');
 ?>
