@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
     crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="new_request.js"></script>
@@ -29,19 +30,32 @@
 <body>
     <div class="container"><h2>好名字</h2></div>
     <div class="container">
-        <form class="form-inline">
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon">姓氏：</div>
-                    <input type="text" id="SurName" class="form-control" 
-                    placeholder="请输入姓氏"/>
-                </div>
-            </div>
-            <div class="form-group">
+        <div class="row toffset3 boffset3">
+            <div class="col-md-1">
                 <input id="submit" onclick="submit_func()" class="btn btn-primary" 
                     type="button" value="提交"/>
             </div>
-        </form>
+            <div class="col-md-2">
+                <input type="text" id="SurName" class="form-control" 
+                    placeholder="姓氏"/>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="Name1" class="form-control" 
+                    placeholder="名字一"/>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="Name2" class="form-control" 
+                    placeholder="名字二"/>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+        </div>
     </div>
     <div class="container">
         <table class="table">

@@ -1,9 +1,18 @@
 function new_request() {    
     surName = document.getElementById("SurName").value;
     if (surName == '') {
-        surName = '徐';
+        surName = '齐';
     }
-    var dataStr = 'surname=' + surName;
+    name1 = document.getElementById("Name1").value;
+    if (name1.length > 1) {
+        name1 = name1[0];
+    }
+    name2 = document.getElementById("Name2").value;
+    if (name2.length > 1) {
+        name2 = name2[0];
+    }
+
+    var dataStr = 'surname=' + surName + '&n1=' + name1 + '&n2=' + name2;
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {

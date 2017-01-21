@@ -11,6 +11,7 @@
     define('AUTH_DB_NAME', 'auth_names');
 
     define('CHAR_TBL', 'chars');
+    define('ALLCHAR_TBL', 'name_char');
     define('SAVE_TBL', 'saved');
     define('AUTH_TBL', 'auth');
 ?>
