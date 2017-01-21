@@ -25,6 +25,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="new_request.js"></script>
     <script src="remove_char.js"></script>
+    <script src="like_char.js"></script>
     <script src="save_name.js"></script>
 </head>
 <body>
@@ -80,7 +81,8 @@
     <div class="container">
         <table class="table table-bordered">
             <tr>
-                <td width="10%"></td>
+                <td width="5%"></td>
+                <td width="5%"></td>
                 <td width="10%" class="success">文字</td>
                 <td width="10%">占吉</td>
                 <td width="10%">属行</td>
@@ -88,8 +90,10 @@
                 <td width="10%">笔划</td>
             </tr>
             <tr>
-                <td width="10%"><input id="rm1" onclick="remove1()" 
+                <td width="5%"><input id="rm1" onclick="remove1()" 
                     type="button" value="删除" class="btn btn-danger"/></td>
+                <td width="5%"><input id="up1" onclick="like1()" 
+                    type="button" value="喜欢" class="btn btn-success"/></td>
                 <td width="10%" class="success"><span id="char1"></span></td>
                 <td width="10%"><span id="fort1"></span></td>
                 <td width="10%"><span id="attr1"></span></td>
@@ -97,8 +101,10 @@
                 <td width="10%"><span id="num1"></span></td>
             </tr>
             <tr>
-                <td width="10%"><input id="rm2" onclick="remove2()" 
+                <td width="5%"><input id="rm2" onclick="remove2()" 
                     type="button" value="删除" class="btn btn-danger"/></td>
+                <td width="5%"><input id="up2" onclick="like2()" 
+                    type="button" value="喜欢" class="btn btn-success"/></td>
                 <td width="10%" class="success"><span id="char2"></span></td>
                 <td width="10%"><span id="fort2"></span></td>
                 <td width="10%"><span id="attr2"></span></td>
@@ -112,12 +118,22 @@
         function submit_func() {
             document.getElementById("rm1").onclick = function() {remove1();};
             document.getElementById("rm1").value = '删除';
+            document.getElementById("rm1").className = "btn btn-danger";
             document.getElementById("rm2").onclick = function() {remove2();};
             document.getElementById("rm2").value = '删除';
+            document.getElementById("rm2").className = "btn btn-danger";
+            document.getElementById("up1").onclick = function() {like1();};
+            document.getElementById("up1").value = '喜欢';
+            document.getElementById("up1").className = "btn btn-success";
+            document.getElementById("up2").onclick = function() {like2();};
+            document.getElementById("up2").value = '喜欢';
+            document.getElementById("up2").className = "btn btn-success";
             document.getElementById("save").onclick = function() { save_name(); };
             document.getElementById("save").value = '保存';
+            document.getElementById("save").className = "btn btn-success";
             document.getElementById("save_r").onclick = function() { save_name_r(); };
             document.getElementById("save_r").value = '保存';
+            document.getElementById("save_r").className = "btn btn-success";
             var c1 = "";
             var c2 = "";
             var fullName = "";
