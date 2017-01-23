@@ -1,7 +1,11 @@
 <?php
-function spec_query($db, $limit, $offset) {
+function spec_query($db, $limit, $offset, $only) {
     $ret = "";
-    $sql = "SELECT * FROM ".CHAR_TBL." WHERE Banned=0 LIMIT $limit OFFSET $offset;";
+    if ($only == 0) {
+        $sql = "SELECT * FROM ".CHAR_TBL." WHERE Banned=0 LIMIT $limit OFFSET $offset;";
+    } else {
+        $sql = "SELECT * FROM ".CHAR_TBL." WHERE Banned=0 AND Liked=1 LIMIT $limit OFFSET $offset;";
+    }
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();
         while ($row = $stmt->fetch()) {
@@ -17,9 +21,13 @@ function spec_query($db, $limit, $offset) {
     return $ret;
 }
 
-function count_query($db) {
+function count_query($db, $only) {
     $ret = "";
-    $sql = "SELECT COUNT(*) FROM ".CHAR_TBL." WHERE Banned=0;";
+    if ($only == 0) {
+        $sql = "SELECT COUNT(*) FROM ".CHAR_TBL." WHERE Banned=0;";
+    } else {
+        $sql = "SELECT COUNT(*) FROM ".CHAR_TBL." WHERE Banned=0 AND Liked=1;";
+    }
     if($stmt = $db->prepare($sql)) {
         $stmt->execute();
         $ret = $stmt->fetch()[0];
@@ -41,6 +49,11 @@ try {
 $limit = $_REQUEST["lmt"];
 $offset = $_REQUEST["ofs"];
 $count = $_REQUEST["count"];
+$only = $_REQUEST["only"];
+
+if (empty($only)) {
+    $only = 0;
+}
 
 if (empty($count)) {
     if (empty($limit)) {
@@ -50,9 +63,9 @@ if (empty($count)) {
         $offset = 0;
     }
 
-    $str = spec_query($db, $limit, $offset);
+    $str = spec_query($db, $limit, $offset, $only);
 } else {
-    $str = count_query($db);
+    $str = count_query($db, $only);
 }
 echo $str;
 ?>

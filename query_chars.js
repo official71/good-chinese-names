@@ -5,6 +5,8 @@ currPage = -1;
 currRow = 0;
 fullStr = "";
 fullList = "";
+likeOnlyFlag = 0;
+
 
 function get_charId(button_id) {
     //assume the button id follows the format "xxx11",
@@ -86,7 +88,7 @@ function undolike_char(id) {
 }
 
 function num_pages() {
-    var dataStr = 'count=1';
+    var dataStr = 'count=1&only=' + likeOnlyFlag;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -168,7 +170,7 @@ function show_page() {
     document.getElementById("pageNum1").innerHTML = "页 " + (currPage+1);
     var limit = nrQuery;
     var offset = currPage * nrQuery;
-    var dataStr = 'lmt=' + limit + '&ofs=' + offset;
+    var dataStr = 'lmt=' + limit + '&ofs=' + offset + '&only=' + likeOnlyFlag;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -256,4 +258,26 @@ function first_page() {
 function last_page() {
     currPage = nrPages - 1;
     show_page();
+}
+
+function like_only() {
+    likeOnlyFlag = 1;
+
+    var btn = document.getElementById("likeOnly");
+    btn.onclick = function() { check_all(); };
+    btn.value = '查看全部字库';
+
+    num_pages();
+    first_page();
+}
+
+function check_all() {
+    likeOnlyFlag = 0;
+
+    var btn = document.getElementById("likeOnly");
+    btn.onclick = function() { like_only(); };
+    btn.value = '仅查看喜欢字库';
+
+    num_pages();
+    first_page();
 }
