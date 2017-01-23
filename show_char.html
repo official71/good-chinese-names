@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>管理字库</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+    crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="query_chars.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row toffset3">
+            <div class="col-md-2">
+                <a href="name.php" class="btn btn-info">返回</a>
+            </div>
+        </div>
+    </div>
+    <div class="container toffset3">
+        <table id="charTbl" class="table table-bordered">
+            <tr>
+                <th width="5%"></th>
+                <th width="5%"></th>
+                <th width="10%" class="success">文字</th>
+                <th width="10%">占吉</th>
+                <th width="10%">属行</th>
+                <th width="50%">解读</th>
+                <th width="10%">笔划</th>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row toffset1">
+            <p class="text-center" id="pageNum">页</p>
+        </div>
+        <div class="row toffset3">
+            <div class="col-md-1">
+                <input id="firstPage" onclick="first_page()" class="btn btn-default" 
+                    type="button" value="首页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="prevPage" onclick="prev_page()" class="btn btn-default" 
+                    type="button" value="前一页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="nextPage" onclick="next_page()" class="btn btn-primary" 
+                    type="button" value="后一页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="lastPage" onclick="last_page()" class="btn btn-default" 
+                    type="button" value="尾页"/>
+            </div>
+        </div>
+        <div class="row toffset2">
+            <div class="col-md-1">
+                <input id="gotoPage" onclick="goto_page()" class="btn btn-default" 
+                    type="button" value="跳转"/>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="gotoPg" class="form-control" 
+                    placeholder="请输入页码"/>
+            </div>
+    </div>
+
+    <script type="text/javascript">
+        num_pages();
+        init_page();
+        next_page();
+    </script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+    crossorigin="anonymous"></script>
+</body>
+</html>

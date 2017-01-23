@@ -31,6 +31,16 @@
 <body>
     <div class="container"><h2>好名字</h2></div>
     <div class="container">
+        <div class="row toffset3">
+            <div class="col-md-2">
+                <a href="show_char.html" class="btn btn-info">管理字库</a>
+            </div>
+            <div class="col-md-2">
+                <a href="show_name.html" class="btn btn-info">保存的姓名</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div class="row toffset3 boffset3">
             <div class="col-md-1">
                 <input id="submit" onclick="submit_func()" class="btn btn-primary" 
@@ -81,13 +91,13 @@
     <div class="container">
         <table class="table table-bordered">
             <tr>
-                <td width="5%"></td>
-                <td width="5%"></td>
-                <td width="10%" class="success">文字</td>
-                <td width="10%">占吉</td>
-                <td width="10%">属行</td>
-                <td width="50%">解读</td>
-                <td width="10%">笔划</td>
+                <th width="5%"></th>
+                <th width="5%"></th>
+                <th width="10%" class="success">文字</th>
+                <th width="10%">占吉</th>
+                <th width="10%">属行</th>
+                <th width="50%">解读</th>
+                <th width="10%">笔划</th>
             </tr>
             <tr>
                 <td width="5%"><input id="rm1" onclick="remove1()" 
