@@ -1,4 +1,4 @@
-nrQuery = 10;
+nrQuery = 50;
 nrPages = 0;
 nrRows = 0;
 currPage = -1;
@@ -103,8 +103,14 @@ function init_page() {
     for (i = 0; i < nrQuery; i++) {
         row = table.insertRow(-1);
 
+        // index
+        cell = row.insertCell(0);
+        t = document.createElement("span");
+        t.innerHTML = i + 1;
+        cell.appendChild(t);
+
         // remove button
-        cell0 = row.insertCell(0);
+        cell0 = row.insertCell(1);
         t0 = document.createElement("input");
         t0.id = "rmc" + i;
         t0.onclick = function() {remove_char(this.id);};
@@ -114,7 +120,7 @@ function init_page() {
         cell0.appendChild(t0);
 
         // like button
-        cell1 = row.insertCell(1);
+        cell1 = row.insertCell(2);
         t1 = document.createElement("input");
         t1.id = "upc" + i;
         t1.onclick = function() {like_char(this.id);};
@@ -124,33 +130,33 @@ function init_page() {
         cell1.appendChild(t1);
 
         //character
-        cell2 = row.insertCell(2);
+        cell2 = row.insertCell(3);
         t2 = document.createElement("span");
         t2.id = "charc" + i;
         cell2.className = "success";
         cell2.appendChild(t2);
 
         //fortune
-        cell3 = row.insertCell(3);
+        cell3 = row.insertCell(4);
         t3 = document.createElement("span");
         t3.id = "fortc" + i;
         cell3.appendChild(t3);
 
         //attribute
-        cell4 = row.insertCell(4);
+        cell4 = row.insertCell(5);
         t4 = document.createElement("span");
         t4.id = "attrc" + i;
         cell4.appendChild(t4);
 
         //reference
-        cell5 = row.insertCell(5);
+        cell5 = row.insertCell(6);
         t5 = document.createElement("span");
         t5.style = "font-size: 80%";
         t5.id = "refc" + i;
         cell5.appendChild(t5);
 
         //number
-        cell6 = row.insertCell(6);
+        cell6 = row.insertCell(7);
         t6 = document.createElement("span");
         t6.id = "numc" + i;
         cell6.appendChild(t6);
@@ -159,6 +165,7 @@ function init_page() {
 
 function show_page() {
     document.getElementById("pageNum").innerHTML = "页 " + (currPage+1);
+    document.getElementById("pageNum1").innerHTML = "页 " + (currPage+1);
     var limit = nrQuery;
     var offset = currPage * nrQuery;
     var dataStr = 'lmt=' + limit + '&ofs=' + offset;

@@ -24,23 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="container toffset3">
-        <table id="charTbl" class="table table-bordered">
-            <tr>
-                <th width="5%"></th>
-                <th width="5%"></th>
-                <th width="10%" class="success">文字</th>
-                <th width="10%">占吉</th>
-                <th width="10%">属行</th>
-                <th width="50%">解读</th>
-                <th width="10%">笔划</th>
-            </tr>
-        </table>
-    </div>
     <div class="container">
-        <div class="row toffset1">
-            <p class="text-center" id="pageNum">页</p>
-        </div>
         <div class="row toffset3">
             <div class="col-md-1">
                 <input id="firstPage" onclick="first_page()" class="btn btn-default" 
@@ -68,6 +52,47 @@
                 <input type="text" id="gotoPg" class="form-control" 
                     placeholder="请输入页码"/>
             </div>
+        </div>
+        <div class="row toffset3">
+            <p class="text-center" id="pageNum">页</p>
+        </div>
+    </div>
+    <div class="container toffset1">
+        <table id="charTbl" class="table table-bordered">
+            <tr>
+                <th width="3%"></th>
+                <th width="5%"></th>
+                <th width="5%"></th>
+                <th width="10%" class="success">文字</th>
+                <th width="10%">占吉</th>
+                <th width="10%">属行</th>
+                <th width="50%">解读</th>
+                <th width="7%">笔划</th>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row toffset1">
+            <p class="text-center" id="pageNum1">页</p>
+        </div>
+        <div class="row toffset3 boffset3">
+            <div class="col-md-1">
+                <input id="firstPage1" onclick="first_page()" class="btn btn-default" 
+                    type="button" value="首页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="prevPage1" onclick="prev_page()" class="btn btn-default" 
+                    type="button" value="前一页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="nextPage1" onclick="next_page()" class="btn btn-primary" 
+                    type="button" value="后一页"/>
+            </div>
+            <div class="col-md-1">
+                <input id="lastPage1" onclick="last_page()" class="btn btn-default" 
+                    type="button" value="尾页"/>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
