@@ -90,14 +90,11 @@ function undolike_char(id) {
 function num_pages() {
     var dataStr = 'count=1&only=' + likeOnlyFlag;
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var nrEntries = this.responseText;
-            nrPages = Math.floor(nrEntries / nrQuery) + 1;
-        }
-    };
-    xmlhttp.open("GET", "get_chars.php?" + dataStr, true);
+
+    xmlhttp.open("GET", "get_chars.php?" + dataStr, false);
     xmlhttp.send();
+    var nrEntries = xmlhttp.responseText;
+    nrPages = Math.floor(nrEntries / nrQuery) + 1;
 }
 
 function init_page() {
@@ -166,8 +163,8 @@ function init_page() {
 }
 
 function show_page() {
-    document.getElementById("pageNum").innerHTML = "页 " + (currPage+1);
-    document.getElementById("pageNum1").innerHTML = "页 " + (currPage+1);
+    document.getElementById("pageNum").innerHTML = "页 "+(currPage+1)+"/"+nrPages;
+    document.getElementById("pageNum1").innerHTML = "页 "+(currPage+1)+"/"+nrPages;
     var limit = nrQuery;
     var offset = currPage * nrQuery;
     var dataStr = 'lmt=' + limit + '&ofs=' + offset + '&only=' + likeOnlyFlag;
@@ -207,7 +204,7 @@ function show_page() {
 
 function next_page() {
     currPage++;
-    if (currPage < 0 || currPage >0 && currPage >= nrPages) {
+    if (currPage < 0 || currPage >= nrPages) {
         console.log("currPage ["+currPage+"] exceeds limit: (0, "+nrPages+")");
         currPage--;
         return;
@@ -217,7 +214,7 @@ function next_page() {
 
 function prev_page() {
     currPage--;
-    if (currPage < 0 || currPage >0 && currPage >= nrPages) {
+    if (currPage < 0 || currPage >= nrPages) {
         console.log("currPage ["+currPage+"] exceeds limit: (0, "+nrPages+")");
         currPage++;
         return;
