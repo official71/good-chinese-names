@@ -55,8 +55,9 @@ function rm_name(id) {
 
     var btn = document.getElementById(id);
     btn.onclick = function() { resave_name(this.id); };
-    btn.value = "取消";
+    btn.value = "撤销";
     btn.className = "btn btn-warning";
+    document.getElementById("name"+i).style.color = "LightGray";
 
     var dataStr = 'fullname=' + fullName + '&rawtext=' + raw + '&save=0';
     var xmlhttp = new XMLHttpRequest();
@@ -80,6 +81,7 @@ function resave_name(id) {
     btn.onclick = function() { rm_name(this.id); };
     btn.value = "移除";
     btn.className = "btn btn-danger";
+    document.getElementById("name"+i).style.color = "Black";
 
     var dataStr = 'fullname=' + fullName + '&rawtext=' + raw + '&save=1';
     var xmlhttp = new XMLHttpRequest();
@@ -105,7 +107,7 @@ function remove_char(id) {
 
     var btn = document.getElementById(id);
     btn.onclick = function() { restore_char(this.id); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
 }
 
@@ -141,7 +143,7 @@ function like_char(id) {
 
     var btn = document.getElementById(id);
     btn.onclick = function() { undolike_char(this.id); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
 }
 

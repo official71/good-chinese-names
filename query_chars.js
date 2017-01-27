@@ -7,12 +7,14 @@ fullStr = "";
 fullList = "";
 likeOnlyFlag = 0;
 
-
-function get_charId(button_id) {
+function get_index(button_id) {
     //assume the button id follows the format "xxx11",
     //i.e. exactly 3 letters plus the index number
-    var i = button_id.slice(3);
-    return fullList[i].split(' ')[0];
+    return button_id.slice(3);
+}
+
+function get_charId(button_id) {
+    return fullList[get_index(button_id)].split(' ')[0];
 }
 
 function remove_char(id) {
@@ -29,8 +31,15 @@ function remove_char(id) {
 
     var btn = document.getElementById(id);
     btn.onclick = function() { restore_char(this.id); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
+
+    var i = get_index(id);
+    document.getElementById("charc"+i).style.color = "LightGray";
+    document.getElementById("fortc"+i).style.color = "LightGray";
+    document.getElementById("attrc"+i).style.color = "LightGray";
+    document.getElementById("refc"+i).style.color = "LightGray";
+    document.getElementById("numc"+i).style.color = "LightGray";
 }
 
 function restore_char(id) {
@@ -49,6 +58,13 @@ function restore_char(id) {
     btn.onclick = function() { remove_char(this.id); };
     btn.value = '删除';
     btn.className = "btn btn-danger";
+
+    var i = get_index(id);
+    document.getElementById("charc"+i).style.color = "Black";
+    document.getElementById("fortc"+i).style.color = "Black";
+    document.getElementById("attrc"+i).style.color = "Black";
+    document.getElementById("refc"+i).style.color = "Black";
+    document.getElementById("numc"+i).style.color = "Black";
 }
 
 function like_char(id) {
@@ -65,7 +81,7 @@ function like_char(id) {
 
     var btn = document.getElementById(id);
     btn.onclick = function() { undolike_char(this.id); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
 }
 

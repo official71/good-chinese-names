@@ -1,7 +1,7 @@
 function save_name() {
     var btn = document.getElementById("save");
     btn.onclick = function() { unsave(); };
-    btn.value = "取消";
+    btn.value = "撤销";
     btn.className = "btn btn-warning";
 
     var dataStr = 'fullname=' + fullName + '&rawtext=' + raw + '&save=1';
@@ -25,7 +25,7 @@ function unsave() {
 function save_name_r() {
     var btn = document.getElementById("save_r");
     btn.onclick = function() { unsave_r(); };
-    btn.value = "取消";
+    btn.value = "撤销";
     btn.className = "btn btn-warning";
 
     var dataStr = 'fullname=' + fullName_r + '&rawtext=' + raw_r + '&save=1';

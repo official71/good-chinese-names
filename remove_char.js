@@ -14,8 +14,13 @@ function remove1() {
 
     var btn = document.getElementById("rm1");
     btn.onclick = function() { restore1(); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
+    document.getElementById("char1").style.color = "LightGray";
+    document.getElementById("fort1").style.color = "LightGray";
+    document.getElementById("attr1").style.color = "LightGray";
+    document.getElementById("ref1").style.color = "LightGray";
+    document.getElementById("num1").style.color = "LightGray";
 }
 
 function remove2() {
@@ -23,8 +28,13 @@ function remove2() {
 
     var btn = document.getElementById("rm2");
     btn.onclick = function() { restore2(); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
+    document.getElementById("char2").style.color = "LightGray";
+    document.getElementById("fort2").style.color = "LightGray";
+    document.getElementById("attr2").style.color = "LightGray";
+    document.getElementById("ref2").style.color = "LightGray";
+    document.getElementById("num2").style.color = "LightGray";
 }
 
 function restore(charID) {
@@ -45,6 +55,11 @@ function restore1() {
     btn.onclick = function() { remove1(); };
     btn.value = '删除';
     btn.className = "btn btn-danger";
+    document.getElementById("char1").style.color = "Black";
+    document.getElementById("fort1").style.color = "Black";
+    document.getElementById("attr1").style.color = "Black";
+    document.getElementById("ref1").style.color = "Black";
+    document.getElementById("num1").style.color = "Black";
 }
 
 function restore2() {
@@ -54,4 +69,9 @@ function restore2() {
     btn.onclick = function() { remove2(); };
     btn.value = '删除';
     btn.className = "btn btn-danger";
+    document.getElementById("char2").style.color = "Black";
+    document.getElementById("fort2").style.color = "Black";
+    document.getElementById("attr2").style.color = "Black";
+    document.getElementById("ref2").style.color = "Black";
+    document.getElementById("num2").style.color = "Black";
 }

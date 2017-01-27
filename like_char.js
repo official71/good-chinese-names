@@ -14,7 +14,7 @@ function like1() {
 
     var btn = document.getElementById("up1");
     btn.onclick = function() { undolike1(); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
 }
 
@@ -23,7 +23,7 @@ function like2() {
 
     var btn = document.getElementById("up2");
     btn.onclick = function() { undolike2(); };
-    btn.value = '取消';
+    btn.value = '撤销';
     btn.className = "btn btn-warning";
 }
 
